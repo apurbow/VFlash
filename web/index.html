@@ -7,16 +7,21 @@
 	<title>VFlash</title>
 	<meta name="description"
 		content="A lightweight vocabulary learning platform focused on fast review and personalized learning.">
+	<link rel="shortcut icon" href="assets/images/icon.svg" type="image/svg+xml">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 	<link rel="stylesheet" href="assets/style.css">
 	<script src="https://code.jquery.com/jquery-4.0.0.min.js" defer></script>
+	<script src="assets/data/vocab.js" defer></script>
+	<script src="assets/progress.js" defer></script>
+	<script src="assets/study.js" defer></script>
 	<script src="assets/script.js" defer></script>
 </head>
 
 <body>
 	<div class="app-shell">
+
+		<!-- Navigation -->
 		<header class="app-header">
 			<nav>
 				<ul class="nav-list">
@@ -55,7 +60,53 @@
 			</section>
 
 			<section class="study">
-				<h3>Study</h3>
+
+				<!-- Study/Review toggle section -->
+				<div class="study-toggle-shell">
+					<div class="study-toggle-selector"></div>
+					<div class="study-toggle-option active" id="toggle-study">Study</div>
+					<div class="study-toggle-option" id="toggle-review">Review</div>
+				</div>
+
+				<!-- Flashcard -->
+				<div class="flashcard-container">
+					<div class="flashcard">
+						<div class="flashcard-inner">
+
+							<div class="card-front">
+								<p class="card-label"></p>
+								<h1 class="card-word"></h1>
+							</div>
+
+							<div class="card-back">
+								<p class="jp-word"></p>
+								<p class="meaning"></p>
+								<div class="examples"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="study-actions">
+						<button class="hard-btn">
+							<span class="material-symbols-outlined">
+								keyboard_double_arrow_left
+							</span>
+							<span class="title">Hard</span>
+						</button>
+						<button class="skip-btn">
+							<span class="material-symbols-outlined">
+								close
+							</span>
+							<span class="title">Skip</span>
+						</button>
+						<button class="easy-btn">
+							<span class="material-symbols-outlined">
+								keyboard_double_arrow_right
+							</span>
+							<span class="title">Easy</span>
+						</button>
+					</div>
+				</div>
 			</section>
 
 			<section class="search">

@@ -1,11 +1,19 @@
 body {
 	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	background: linear-gradient(135deg, #FE61B4, #26365A);
-	transition: 200ms ease-in-out;
+	min-height: 100vh;
+	background: linear-gradient(
+		135deg,
+		#6d28d9,
+		#629dff,
+		#7350c2,
+		#43befb
+	);
+	background-size: 400% 400%;
+	background-position: 0% 0%;
+	transition: background-position 1s;
+	user-select: none ;
 }
+
 
 .app-shell {
 	width: 100%;
@@ -16,6 +24,8 @@ body {
 	height: 100vh;
 	overflow: hidden;
 }
+
+/* Navigation */
 
 .app-header {
 	background: rgba(255, 255, 255, 0.15);
@@ -51,22 +61,25 @@ body {
 	padding: 0.3rem;
 	margin: 0 5px;
 	border-radius: 10px;
-	transition: 200ms ease-in;
+	transition: all 200ms ease-in, border 0ms;
 	outline: none;
 }
 
 .nav-item-active {
 	background-color: rgba(255, 255, 255, 0.2);
-	border: 1px solid rgba(255, 255, 255, 0.3);
+	border: 1px solid rgba(255, 255, 255, 0.4);
 	box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
 	transform: scale(1.03);
 }
+
 .nav-item:hover {
 	background-color: rgba(255, 255, 255, 0.1);
 	transform: scale(1.03);
 }
-
-
+.nav-item:active {
+	background-color: rgba(255, 255, 255, 0.1);
+	transform: scale(1.03);
+}
 
 .nav-item .material-symbols-outlined {
 	font-size: 2.5rem;
@@ -77,10 +90,280 @@ body {
 	color: #ffffffa1;
 }
 
+
+/* Main section */
+
 .app-main {
+	display: flex;
+	flex: 1;
+	transition: transform 0.3s ease-in-out;
+	overflow: hidden;
+	overflow-y: auto;
+	width: 400%;
+}
+
+.app-main section {
+	text-align: center;
+	padding: 1rem;
+	min-width: 25%;
+	overflow: hidden;
+}
+
+/* Study/Review toggle section */
+
+.study-toggle-shell {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 56px;
+	padding: 6px;
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(15px);
+	-webkit-backdrop-filter: blur(15px);
+	border-radius: 18px;
+	box-shadow:
+		0 0 15px rgba(0, 0, 0, 0.1),
+		inset 0 0 2px rgba(255, 255, 255, 0.2);
+	overflow: hidden;
+}
+
+.study-toggle-selector {
+	position: absolute;
+	top: 6px;
+	left: 6px;
+	width: calc(50% - 6px);
+	height: calc(100% - 12px);
+	border-radius: 14px;
+	background: rgba(255, 255, 255, 0.22);
+	border: 1px solid rgba(255, 255, 255, 0.35);
+	backdrop-filter: blur(10px);
+	transition: transform 0.35s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.study-toggle-selector.review {
+	transform: translateX(100%);
+}
+
+.study-toggle-option {
+	position: relative;
+	z-index: 2;
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	color: rgba(255,255,255,0.7);
+	font-weight: 600;
+	cursor: pointer;
+	transition: 0.25s;
+}
+
+.study-toggle-option.active {
+	color: white;
+}
+
+
+/* Flashcard */
+
+.flashcard-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+	padding-top: 1rem;
+}
+
+.flashcard {
+	width: 100%;
+	height: 420px;
+	perspective: 1000px;
+	cursor: pointer;
+}
+
+.flashcard-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+	transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+	transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 2rem;
+	
+	background: rgba(255,255,255,0.15);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255,255,255,0.2);
+	border-radius: 18px;
+	color: white;
+	box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+.card-back {
+	transform: rotateY(180deg);
+	overflow-y: auto;
+}
+
+.card-label {
+	font-size: 0.8rem;
+	letter-spacing: 2px;
+	opacity: 0.7;
+}
+.card-word {
+	font-size: 3rem;
+	font-weight: 700;
+	margin-top: 1rem;
+}
+.jp-word {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+.meaning {
+	margin-top: 0.2rem;
+	font-size: 1rem;
+	line-height: 1.6;
+	color: rgba(255,255,255,0.9);
+}
+.examples {
+	margin-top: 0.2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.example {
+	background: rgba(255,255,255,0.08);
+	padding: 0.5rem;
+	border-radius: 14px;
+	text-align: left;
+}
+.example p {
+	margin-bottom: 0.4rem;
+}
+.example small {
+	color: rgba(255,255,255,0.7);
+}
+
+
+
+/* Study Buttons */
+
+.study-actions {
+	width: 100%;
+	display: flex;
+	gap: 0.8rem;
+	margin-top: 1rem;
+}
+
+.study-actions button {
+	position: relative;
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	padding: 1rem;
-	overflow-y: auto;
+	align-items: center;
+	justify-content: center;
+	gap: 0.15rem;
+	height: 84px;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 22px;
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	color: white;
+	cursor: pointer;
+	overflow: hidden;
+	transition: transform 0.1s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
+
+.study-actions button:active {
+	transform: scale(0.94);
+}
+
+.study-actions button .material-symbols-outlined {
+	font-size: 1.9rem;
+}
+.study-actions button .title {
+	font-size: 0.72rem;
+	font-weight: 600;
+	letter-spacing: 0.4px;
+	color: rgba(255,255,255,0.82);
+}
+
+/* Study Button - HARD */
+.study-actions .hard-btn {
+	background:
+		linear-gradient(
+			180deg,
+			rgba(255, 238, 238, 0.1),
+			rgba(255, 52, 52, 0.3)
+		);
+}
+
+/* Study Button - SKIP */
+.study-actions .skip-btn {
+	max-width: 90px;
+	background:
+		linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0.1),
+			rgba(180, 180, 180, 0.5)
+		);
+}
+
+/* Study Button - EASY */
+.study-actions .easy-btn {
+	background:
+		linear-gradient(
+			180deg,
+			rgba(198, 255, 219, 0.1),
+			rgba(0, 255, 98, 0.3)
+		);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile device */
+
+@media (min-height: 800px) {
+	.flashcard-container {
+		justify-content: space-evenly;
+	}
+}
+
+
+/* Desktop device */
+
+@media (min-width: 500px) {
+	.study-actions button:hover {
+		transform: scale(1.03);
+	}
+	.study-actions button:active {
+		transform: scale(0.94); 
+	}
+
+}
+
+
+
