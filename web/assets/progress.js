@@ -1,7 +1,11 @@
 const STORAGE_KEY = 'vflash-progress';
 
 function loadProgress() {
-	return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+	try {
+		return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+	} catch {
+		return {};
+	}
 }
 
 function saveProgress(progress) {
@@ -13,7 +17,9 @@ function updateWordProgress(wordId, difficulty) {
 	if (!progress[wordId]) {
 		progress[wordId] = {
 			score: 0,
-			nextReview: 0
+			nextReview: 0,
+			successCount: 0,
+			failCount: 0
 		};
 	}
 
@@ -21,8 +27,10 @@ function updateWordProgress(wordId, difficulty) {
 
 	// Score update based on difficulty
 	if (difficulty === 'easy') {
+		entry.successCount++;
 		entry.score += 1;
 	} else if (difficulty === 'hard') {
+		entry.failCount++;
 		entry.score -= 1;
 		entry.score = Math.max(0, entry.score); // Prevent negative score
 	}
@@ -41,5 +49,7 @@ function getNextReviewHours(score) {
 	if (score === 2) return 24; // 1 day
 	if (score === 3) return 72; // 3 days
 	if (score === 4) return 168; // 1 week
-	return 336; // 2 weeks
+	if (score === 5) return 336; // 2 weeks
+	if (score === 6) return 672; // 4 weeks
+	return 2160; // 3 months
 }

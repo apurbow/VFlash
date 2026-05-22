@@ -5,11 +5,13 @@ $(document).ready(function () {
 
 	// Navigation
 	$(".nav-item").click(function () {
+		if ($(this).hasClass("nav-item-active")) return;
 		$(".nav-item").removeClass("nav-item-active");
 		$(this).addClass("nav-item-active");
 
 		let activePage = $(this).children().eq(1).text();
 		if (activePage == "Home") {
+			loadDashboard();
 			$(".app-main").css({ transform: "translateX(0%)" });
 			$("body").css({ "background-position": "0% 0%" });
 		} else if (activePage == "Study") {
@@ -18,13 +20,13 @@ $(document).ready(function () {
 		} else if (activePage == "Search") {
 			$(".app-main").css({ transform: "translateX(-50%)" });
 			$("body").css({ "background-position": "66% 66%" });
-		} else if (activePage == "Profile") {
+		} else if (activePage == "Quiz") {
 			$(".app-main").css({ transform: "translateX(-75%)" });
 			$("body").css({ "background-position": "100% 100%" });
 		}
 	});
 
-	$(".nav-item").eq(1).click();
+	// $(".nav-item").eq(1).click();
 
 	// Study\Review toggle
 
@@ -109,24 +111,28 @@ $(document).ready(function () {
 		if (!currentWord) return;
 		updateWordProgress(currentWord.id, "easy");
 		loadNextCard();
+		loadDashboard();
 	});
 
 	$(".hard-btn").click(function () {
 		if (!currentWord) return;
 		updateWordProgress(currentWord.id, "hard");
 		loadNextCard();
+		loadDashboard();
 	});
 
 	$(".skip-btn").click(function () {
 		if (!currentWord) return;
 
 		if (currentMode === "study") {
+			// For studyQueue, reinsert the word at a random position
 			studyQueue.splice(
 				Math.floor(Math.random() * studyQueue.length),
 				0,
 				currentWord
 			);
 		} else {
+			// For reviewQueue, use nextReview logic
 			reviewQueue.splice(
 				Math.floor(Math.random() * reviewQueue.length),
 				0,
@@ -134,9 +140,11 @@ $(document).ready(function () {
 			);
 		}
 		loadNextCard();
+		loadDashboard();
 	});
 
 	// Initiate
 	generateStudyQueue();
 	loadNextCard();
+	loadDashboard();
 });

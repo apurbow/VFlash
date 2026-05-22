@@ -15,6 +15,7 @@
 	<script src="assets/data/vocab.js" defer></script>
 	<script src="assets/progress.js" defer></script>
 	<script src="assets/study.js" defer></script>
+	<script src="assets/dashboard.js" defer></script>
 	<script src="assets/script.js" defer></script>
 </head>
 
@@ -45,20 +46,106 @@
 					</li>
 					<li class="nav-item">
 						<span class="material-symbols-outlined">
-							person
+							quiz
 						</span>
-						<span class="title">Profile</span>
+						<span class="title">Quiz</span>
 					</li>
 				</ul>
 			</nav>
 		</header>
 
-		<main class="app-main">
 
+		<main class="app-main">
+			<!-- Dashboard -->
 			<section class="dashboard">
-				<h3>Dashboard</h3>
+				<!-- Hero Card -->
+				<div class="overview-card glass-card">
+					<div class="overview-content">
+						<p class="overview-label">TODAY</p>
+						<h1 class="overview-title">
+							12 Reviews Ready
+						</h1>
+						<p class="overview-subtitle">
+							Keep your memory fresh with a quick review session.
+						</p>
+						<button class="overview-btn">
+							Start Review
+						</button>
+					</div>
+					<div class="overview-glow"></div>
+				</div>
+
+
+				<!-- Stats -->
+				<div class="stats-grid">
+					<div class="stat-card glass-card">
+						<div>
+							<span class="material-symbols-outlined">
+								menu_book
+							</span>
+							<p>Studying</p>
+						</div>
+						<h2>0</h2>
+					</div>
+					<div class="stat-card glass-card">
+						<div>
+							<span class="material-symbols-outlined">
+								refresh
+							</span>
+							<p>Reviewing</p>
+						</div>
+						<h2>0</h2>
+					</div>
+					<div class="stat-card glass-card">
+						<div>
+							<span class="material-symbols-outlined">
+								rewarded_ads
+							</span>
+							<p>Learned</p>
+						</div>
+						<h2>0</h2>
+					</div>
+					<div class="stat-card glass-card">
+						<div>
+							<span class="material-symbols-outlined">
+								psychology
+							</span>
+							<p>Memory</p>
+						</div>
+						<h2>0%</h2>
+					</div>
+				</div>
+
+
+				<!-- Next Review -->
+				<div class="next-review glass-card">
+					<span class="material-symbols-outlined">
+						schedule
+					</span>
+					<div>
+						<p class="small-label">
+							NEXT REVIEW
+						</p>
+						<h3>
+							In 42 Minutes
+						</h3>
+					</div>
+				</div>
+
+
+				<!-- Motivation -->
+				<div class="motivation-card glass-card">
+					<span class="material-symbols-outlined">
+						auto_awesome
+					</span>
+					<p>
+						Small reviews every day beat cramming once a week.
+					</p>
+				</div>
 			</section>
 
+
+			<!-- Study Section -->
 			<section class="study">
 
 				<!-- Study/Review toggle section -->
@@ -113,8 +200,8 @@
 				<h3>Search</h3>
 			</section>
 
-			<section class="profile">
-				<h3>Profile</h3>
+			<section class="quiz">
+				<h3>Quiz</h3>
 			</section>
 		</main>
 	</div>
