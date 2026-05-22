@@ -50,49 +50,51 @@ $(document).ready(function () {
 
 	// Render card
 	function renderCard(word) {
-		// Empty state
-		if (!word) {
-			$(".flashcard").removeClass("flipped");
-
-			if (currentMode === "review") {
-				$(".card-front").html(`
+		$('.card-front, .card-back').addClass("dive");
+		$(".flashcard").removeClass("flipped");
+		setTimeout(() => {
+			// Empty state
+				if (!word) {
+				if (currentMode === "review") {
+					$(".card-front").html(`
 					<div class="empty-state">
 						<h3>Hurray!</h3>
 						<h4>No words to review</h4>
 					</div>
 				`);
-			} else {
-				$(".card-front").html(`
+				} else {
+					$(".card-front").html(`
 					<div class="empty-state">
 						<h3>All caught up!</h3>
 						<h4>You've studied all new words</h4>
 					</div>
 				`);
+				}
+				return;
 			}
-			return;
-		}
 
-		$(".card-front").html(`
+			$(".card-front").html(`
 			<p class="card-label">WORD</p>
 			<h1 class="card-word">${word.word}</h1>
 		`);
 
-		let examplesHTML = "";
-		word.examples.forEach((example) => {
-			examplesHTML += `
+			let examplesHTML = "";
+			word.examples.forEach((example) => {
+				examplesHTML += `
 				<div class="example">
 					<p>${example.english}</p>
 					<small>${example.japanese}</small>
 				</div>
 			`;
-		});
+			});
 
-		$(".card-back").html(`
+			$(".card-back").html(`
 			<p class="jp-word">${word.japanese} (${word.romaji})</p>
 			<p class="meaning">${word.meaning_en}</p>
 			<div class="examples">${examplesHTML}</div>
 		`);
-		$(".flashcard").removeClass("flipped");
+			$('.card-front, .card-back').removeClass("dive");
+		}, 200);
 	}
 
 
@@ -117,7 +119,7 @@ $(document).ready(function () {
 	$(".skip-btn").click(function () {
 		if (!currentWord) return;
 
-			if (currentMode === "study") {
+		if (currentMode === "study") {
 			studyQueue.splice(
 				Math.floor(Math.random() * studyQueue.length),
 				0,

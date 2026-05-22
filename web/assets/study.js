@@ -36,7 +36,7 @@ function getNextWord() {
 			if (!$('.study-actions').is(':visible')) $('.study-actions').show();
 		}
 		return studyQueue.shift();
-	}  else {
+	} else {
 		if (reviewQueue.length === 0) generateReviewQueue();
 		if (reviewQueue.length === 0) {
 			$('.study-actions').hide();

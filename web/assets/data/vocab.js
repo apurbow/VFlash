@@ -529,7 +529,7 @@ const words = [
     {
         "id": 32,
         "word": "syntax",
-        "japanese": "構文（シンタックス）",
+        "japanese": "構文",
         "romaji": "koubun",
         "meaning_en": "the specific grammar rules of a programming language",
         "examples": [
@@ -580,7 +580,7 @@ const words = [
     {
         "id": 35,
         "word": "validation",
-        "japanese": "検証（バリデーション）",
+        "japanese": "検証",
         "romaji": "barideeshon",
         "meaning_en": "the process of checking if data input is correct and secure",
         "examples": [
@@ -716,7 +716,7 @@ const words = [
     {
         "id": 43,
         "word": "configuration",
-        "japanese": "設定（構成）",
+        "japanese": "設定",
         "romaji": "settei",
         "meaning_en": "the arrangements and settings chosen for a program or system hardware",
         "examples": [
@@ -733,7 +733,7 @@ const words = [
     {
         "id": 44,
         "word": "parameter",
-        "japanese": "パラメータ（媒介変数）",
+        "japanese": "パラメータ",
         "romaji": "parameeta",
         "meaning_en": "a variable declared in a function definition used to accept data input",
         "examples": [
@@ -750,7 +750,7 @@ const words = [
     {
         "id": 45,
         "word": "argument",
-        "japanese": "引数（ひきすう）",
+        "japanese": "引数",
         "romaji": "hikisuu",
         "meaning_en": "the actual value or data passed into a function when calling it",
         "examples": [
@@ -886,7 +886,7 @@ const words = [
     {
         "id": 53,
         "word": "boolean",
-        "japanese": "真偽値（ブーリアン）",
+        "japanese": "真偽値",
         "romaji": "shingichi",
         "meaning_en": "a data type that can only hold one of two values: true or false",
         "examples": [
@@ -903,7 +903,7 @@ const words = [
     {
         "id": 54,
         "word": "loop",
-        "japanese": "ループ（繰り返し処理）",
+        "japanese": "ループ",
         "romaji": "ruupu",
         "meaning_en": "a code structure that repeats a sequence of instructions until a condition is met",
         "examples": [
@@ -937,7 +937,7 @@ const words = [
     {
         "id": 56,
         "word": "scope",
-        "japanese": "スコープ（有効範囲）",
+        "japanese": "スコープ",
         "romaji": "sukoopu",
         "meaning_en": "the region or context of a program where a declared variable is accessible",
         "examples": [
@@ -954,7 +954,7 @@ const words = [
     {
         "id": 57,
         "word": "element",
-        "japanese": "要素（エレメント）",
+        "japanese": "要素",
         "romaji": "youso",
         "meaning_en": "an individual component part of a webpage DOM structure or array",
         "examples": [
@@ -1022,7 +1022,7 @@ const words = [
     {
         "id": 61,
         "word": "listener",
-        "japanese": "リスナー（イベント待機処理）",
+        "japanese": "リスナー",
         "romaji": "risunaa",
         "meaning_en": "a procedure in JavaScript that waits for an event to occur before firing code",
         "examples": [
@@ -1056,7 +1056,7 @@ const words = [
     {
         "id": 63,
         "word": "staging",
-        "japanese": "ステージング環境（検証環境）",
+        "japanese": "ステージング環境",
         "romaji": "suteejingu kankyou",
         "meaning_en": "a mirror environment of production used to test code completely before release",
         "examples": [
@@ -1090,7 +1090,7 @@ const words = [
     {
         "id": 65,
         "word": "command",
-        "japanese": "コマンド（命令）",
+        "japanese": "コマンド",
         "romaji": "komando",
         "meaning_en": "an instruction given by a user to a computer shell system interpreter",
         "examples": [
@@ -1124,7 +1124,7 @@ const words = [
     {
         "id": 67,
         "word": "query",
-        "japanese": "クエリ（問い合わせ）",
+        "japanese": "クエリ",
         "romaji": "kueri",
         "meaning_en": "a request for specific information fetched directly from a database system",
         "examples": [
@@ -1141,7 +1141,7 @@ const words = [
     {
         "id": 68,
         "word": "index",
-        "japanese": "インデックス（索引）",
+        "japanese": "インデックス",
         "romaji": "indekkusu",
         "meaning_en": "an optimization marker layout that accelerates dataset pointer query speeds",
         "examples": [
@@ -1188,5 +1188,36 @@ const words = [
                 "japanese": "現在のセッションが終了すると、ストレージの値をクリアします。"
             }
         ]
-    }
+    },
+    { "id": 71, "word": "cache", "japanese": "キャッシュ", "romaji": "kyasshu", "meaning_en": "temporary stored data used to improve loading speed and performance", "examples": [{ "english": "Clearing the browser cache fixed the display issue.", "japanese": "ブラウザのキャッシュを削除したら表示の問題が直りました。" }, { "english": "The app uses cache to load images faster.", "japanese": "そのアプリは画像を速く読み込むためにキャッシュを使用しています。" }] },
+    { "id": 72, "word": "cookie", "japanese": "クッキー", "romaji": "kukkii", "meaning_en": "small data stored in a browser to remember user information and settings", "examples": [{ "english": "The website uses cookies to keep users logged in.", "japanese": "そのウェブサイトはユーザーのログイン状態を維持するためにクッキーを使用しています。" }, { "english": "Please accept the cookie policy before continuing.", "japanese": "続行する前にクッキーポリシーに同意してください。" }] },
+    { "id": 73, "word": "bandwidth", "japanese": "帯域幅", "romaji": "taiikihaba", "meaning_en": "the amount of data that can be transferred over a network in a certain time", "examples": [{ "english": "Video streaming consumes a lot of bandwidth.", "japanese": "動画配信は多くの帯域幅を消費します。" }, { "english": "We upgraded the server bandwidth this month.", "japanese": "今月サーバーの帯域幅を増強しました。" }] },
+    { "id": 74, "word": "latency", "japanese": "遅延", "romaji": "chien", "meaning_en": "the delay before data begins transferring across a network", "examples": [{ "english": "High latency makes online games difficult to play.", "japanese": "遅延が大きいとオンラインゲームが遊びにくくなります。" }, { "english": "We are trying to reduce network latency.", "japanese": "ネットワーク遅延を減らそうとしています。" }] },
+    { "id": 75, "word": "firewall", "japanese": "ファイアウォール", "romaji": "faiawooru", "meaning_en": "a security system that monitors and controls network traffic", "examples": [{ "english": "The firewall blocked suspicious traffic.", "japanese": "ファイアウォールが不審な通信をブロックしました。" }, { "english": "Please configure the firewall settings properly.", "japanese": "ファイアウォールの設定を正しく行ってください。" }] },
+    { "id": 76, "word": "backup", "japanese": "バックアップ", "romaji": "bakkuappu", "meaning_en": "a copy of data stored separately in case the original is lost", "examples": [{ "english": "We perform database backups every night.", "japanese": "毎晩データベースのバックアップを行っています。" }, { "english": "Always keep a backup of important files.", "japanese": "重要なファイルは必ずバックアップを取ってください。" }] },
+    { "id": 77, "word": "restore", "japanese": "復元する", "romaji": "fukugen suru", "meaning_en": "to recover data or a system from a backup", "examples": [{ "english": "We restored the server after the outage.", "japanese": "障害の後にサーバーを復元しました。" }, { "english": "Can you restore the deleted files?", "japanese": "削除したファイルを復元できますか？" }] },
+    { "id": 78, "word": "crash", "japanese": "クラッシュ", "romaji": "kurasshu", "meaning_en": "a sudden failure causing software or systems to stop working", "examples": [{ "english": "The app crashed when I opened the settings page.", "japanese": "設定ページを開いたときにアプリがクラッシュしました。" }, { "english": "We are investigating the server crash.", "japanese": "サーバークラッシュの原因を調査しています。" }] },
+    { "id": 79, "word": "bug", "japanese": "バグ", "romaji": "bagu", "meaning_en": "an error or flaw in software that causes unexpected behavior", "examples": [{ "english": "Users reported a bug in the payment system.", "japanese": "ユーザーが決済システムのバグを報告しました。" }, { "english": "The latest update fixed several bugs.", "japanese": "最新のアップデートで複数のバグが修正されました。" }] },
+    { "id": 80, "word": "patch", "japanese": "パッチ", "romaji": "pacchi", "meaning_en": "a software update designed to fix problems or improve security", "examples": [{ "english": "We released a patch for the login issue.", "japanese": "ログイン問題の修正パッチを公開しました。" }, { "english": "Install the latest security patch immediately.", "japanese": "最新のセキュリティパッチをすぐにインストールしてください。" }] },
+    { "id": 81, "word": "version", "japanese": "バージョン", "romaji": "baajon", "meaning_en": "a specific release or edition of software", "examples": [{ "english": "Which version of Node.js are you using?", "japanese": "どのバージョンのNode.jsを使っていますか？" }, { "english": "The new version includes performance improvements.", "japanese": "新しいバージョンには性能改善が含まれています。" }] },
+    { "id": 82, "word": "update", "japanese": "更新", "romaji": "koushin", "meaning_en": "a newer release of software that adds features or fixes issues", "examples": [{ "english": "The system update will start tonight.", "japanese": "システム更新は今夜開始されます。" }, { "english": "Please update the app to the latest version.", "japanese": "アプリを最新バージョンに更新してください。" }] },
+    { "id": 83, "word": "upload", "japanese": "アップロードする", "romaji": "appuroodo suru", "meaning_en": "to transfer files or data from a local device to a server", "examples": [{ "english": "Please upload your profile picture.", "japanese": "プロフィール画像をアップロードしてください。" }, { "english": "The file failed to upload correctly.", "japanese": "ファイルのアップロードに失敗しました。" }] },
+    { "id": 84, "word": "download", "japanese": "ダウンロードする", "romaji": "daunroodo suru", "meaning_en": "to transfer files or data from a server to a local device", "examples": [{ "english": "You can download the report as a PDF.", "japanese": "レポートをPDFとしてダウンロードできます。" }, { "english": "The update is still downloading.", "japanese": "アップデートはまだダウンロード中です。" }] },
+    { "id": 85, "word": "plugin", "japanese": "プラグイン", "romaji": "puraguin", "meaning_en": "an additional software component that adds features to an application", "examples": [{ "english": "We installed a plugin for image optimization.", "japanese": "画像最適化用のプラグインをインストールしました。" }, { "english": "This browser plugin blocks advertisements.", "japanese": "このブラウザプラグインは広告をブロックします。" }] },
+    { "id": 86, "word": "theme", "japanese": "テーマ", "romaji": "teema", "meaning_en": "a visual design style applied to software or websites", "examples": [{ "english": "I changed the editor theme to dark mode.", "japanese": "エディタのテーマをダークモードに変更しました。" }, { "english": "The website supports custom themes.", "japanese": "そのウェブサイトはカスタムテーマに対応しています。" }] },
+    { "id": 87, "word": "layout", "japanese": "レイアウト", "romaji": "reiauto", "meaning_en": "the arrangement of visual elements on a page or screen", "examples": [{ "english": "The mobile layout looks much cleaner now.", "japanese": "モバイルレイアウトがかなり見やすくなりました。" }, { "english": "We redesigned the homepage layout.", "japanese": "ホームページのレイアウトを作り直しました。" }] },
+    { "id": 88, "word": "navigation", "japanese": "ナビゲーション", "romaji": "nabigeeshon", "meaning_en": "the system that helps users move through a website or application", "examples": [{ "english": "The website navigation is easy to understand.", "japanese": "そのウェブサイトのナビゲーションは分かりやすいです。" }, { "english": "We simplified the app navigation menu.", "japanese": "アプリのナビゲーションメニューを簡略化しました。" }] },
+    { "id": 89, "word": "search", "japanese": "検索", "romaji": "kensaku", "meaning_en": "the process of finding information or content within a system", "examples": [{ "english": "The search function supports Japanese keywords.", "japanese": "検索機能は日本語キーワードに対応しています。" }, { "english": "Users can search for products by category.", "japanese": "ユーザーはカテゴリ別に商品を検索できます。" }] },
+    { "id": 90, "word": "filter", "japanese": "フィルター", "romaji": "firutaa", "meaning_en": "a tool used to narrow down displayed data based on conditions", "examples": [{ "english": "Use the filter to show only active users.", "japanese": "アクティブユーザーだけ表示するにはフィルターを使ってください。" }, { "english": "We added a date filter to the dashboard.", "japanese": "ダッシュボードに日付フィルターを追加しました。" }] },
+    { "id": 91, "word": "sort", "japanese": "並び替え", "romaji": "narabikae", "meaning_en": "the process of arranging items in a specific order", "examples": [{ "english": "You can sort the table by date.", "japanese": "日付順にテーブルを並び替えることができます。" }, { "english": "The products are sorted by popularity.", "japanese": "商品は人気順に並び替えられています。" }] },
+    { "id": 92, "word": "notification", "japanese": "通知", "romaji": "tsuuchi", "meaning_en": "a message or alert informing users about updates or events", "examples": [{ "english": "I received a notification about the meeting.", "japanese": "会議についての通知を受け取りました。" }, { "english": "Push notifications can increase user engagement.", "japanese": "プッシュ通知はユーザーエンゲージメントを高めることがあります。" }] },
+    { "id": 93, "word": "permission", "japanese": "権限", "romaji": "kengen", "meaning_en": "authorization allowing a user or system to access certain features or data", "examples": [{ "english": "Camera permission is required for this feature.", "japanese": "この機能にはカメラ権限が必要です。" }, { "english": "The admin changed user permissions yesterday.", "japanese": "管理者が昨日ユーザー権限を変更しました。" }] },
+    { "id": 94, "word": "admin", "japanese": "管理者", "romaji": "kanrisha", "meaning_en": "a user with special control and management privileges in a system", "examples": [{ "english": "Only admins can delete user accounts.", "japanese": "管理者だけがユーザーアカウントを削除できます。" }, { "english": "Please contact the system admin for help.", "japanese": "サポートが必要な場合はシステム管理者に連絡してください。" }] },
+    { "id": 95, "word": "account", "japanese": "アカウント", "romaji": "akaunto", "meaning_en": "a personal profile used to access a service or application", "examples": [{ "english": "I created a new developer account.", "japanese": "新しい開発者アカウントを作成しました。" }, { "english": "Your account password was updated successfully.", "japanese": "アカウントのパスワードが正常に更新されました。" }] },
+    { "id": 96, "word": "password", "japanese": "パスワード", "romaji": "pasuwaado", "meaning_en": "a secret string of characters used for authentication and security", "examples": [{ "english": "Please choose a strong password.", "japanese": "強力なパスワードを設定してください。" }, { "english": "I forgot my account password again.", "japanese": "またアカウントのパスワードを忘れてしまいました。" }] },
+    { "id": 97, "word": "login", "japanese": "ログイン", "romaji": "roguin", "meaning_en": "the process of accessing a system using user credentials", "examples": [{ "english": "The login page is currently unavailable.", "japanese": "現在ログインページは利用できません。" }, { "english": "Two-factor authentication improves login security.", "japanese": "二段階認証はログインの安全性を高めます。" }] },
+    { "id": 98, "word": "logout", "japanese": "ログアウト", "romaji": "roguauto", "meaning_en": "the process of ending a user session in a system or application", "examples": [{ "english": "Please logout before using another account.", "japanese": "別のアカウントを使う前にログアウトしてください。" }, { "english": "The system automatically logs users out after inactivity.", "japanese": "システムは一定時間操作がないと自動的にログアウトします。" }] },
+    { "id": 99, "word": "monitor", "japanese": "監視する", "romaji": "kanshi suru", "meaning_en": "to continuously observe systems, applications, or servers for issues", "examples": [{ "english": "We monitor the servers twenty-four hours a day.", "japanese": "私たちは24時間サーバーを監視しています。" }, { "english": "The dashboard monitors application performance in real time.", "japanese": "ダッシュボードはアプリの性能をリアルタイムで監視しています。" }] },
+    { "id": 100, "word": "maintenance", "japanese": "保守", "romaji": "hoshu", "meaning_en": "the process of keeping systems updated, stable, and functioning properly", "examples": [{ "english": "The website will undergo maintenance tonight.", "japanese": "今夜ウェブサイトの保守作業が行われます。" }, { "english": "Regular maintenance prevents unexpected system failures.", "japanese": "定期的な保守は予期しないシステム障害を防ぎます。" }] }
+
 ]
