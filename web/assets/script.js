@@ -54,7 +54,7 @@ $(document).ready(function () {
 		$(".flashcard").removeClass("flipped");
 		setTimeout(() => {
 			// Empty state
-				if (!word) {
+			if (!word) {
 				if (currentMode === "review") {
 					$(".card-front").html(`
 					<div class="empty-state">
@@ -70,6 +70,7 @@ $(document).ready(function () {
 					</div>
 				`);
 				}
+				$('.card-front, .card-back').removeClass("dive");
 				return;
 			}
 
