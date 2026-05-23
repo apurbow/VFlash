@@ -27,10 +27,10 @@ function updateWordProgress(wordId, difficulty) {
 
 	// Score update based on difficulty
 	if (difficulty === 'easy') {
-		entry.successCount++;
+		if (currentMode === 'review') entry.successCount++;
 		entry.score += 1;
 	} else if (difficulty === 'hard') {
-		entry.failCount++;
+		if (currentMode === 'review') entry.failCount++;
 		entry.score -= 1;
 		entry.score = Math.max(0, entry.score); // Prevent negative score
 	}

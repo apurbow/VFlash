@@ -19,7 +19,7 @@ function loadDashboard() {
 	const totalSuccess = progressArray.reduce((sum, entry) => sum + (entry.successCount || 0), 0);
 	const totalFail = progressArray.reduce((sum, entry) => sum + (entry.failCount || 0), 0);
 	const totalAttempts = totalSuccess + totalFail;
-	const memoryMetric = totalAttempts > 0 ? Math.round((totalSuccess / totalAttempts) * 100) : 0;
+	const recallRate = totalAttempts > 0 ? Math.round((totalSuccess / totalAttempts) * 100) : 0;
 
 
 	// Overview Card
@@ -38,7 +38,7 @@ function loadDashboard() {
 	$('.stat-card').eq(0).find('h2').text(studyingCount);
 	$('.stat-card').eq(1).find('h2').text(reviewingCount);
 	$('.stat-card').eq(2).find('h2').text(learnedCount);
-	$('.stat-card').eq(3).find('h2').text(memoryMetric + '%');
+	$('.stat-card').eq(3).find('h2').text(recallRate + '%');
 
 
 	// Next Review

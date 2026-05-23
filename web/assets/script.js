@@ -1,7 +1,6 @@
-$(document).ready(function () {
+$(window).on('load', function () {
 
 	let currentWord = null;
-
 
 	// Navigation
 	$(".nav-item").click(function () {
@@ -143,8 +142,10 @@ $(document).ready(function () {
 		loadDashboard();
 	});
 
-	// Initiate
+	// Initiate App
 	generateStudyQueue();
 	loadNextCard();
 	loadDashboard();
+	$('body').addClass('ready');
+	setTimeout(() => $('.loading-screen').addClass('hide'), 100);
 });
