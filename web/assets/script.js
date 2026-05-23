@@ -7,6 +7,8 @@ $(window).on('load', function () {
 		if ($(this).hasClass("nav-item-active")) return;
 		$(".nav-item").removeClass("nav-item-active");
 		$(this).addClass("nav-item-active");
+		$(".app-main section").addClass("fadePage");
+		setTimeout(() => $(".app-main section").removeClass("fadePage"), 200);
 
 		let activePage = $(this).children().eq(1).text();
 		if (activePage == "Home") {

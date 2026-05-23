@@ -109,8 +109,12 @@ body {
 	padding: 1rem;
 	min-width: 25%;
 	overflow: hidden;
+	transition: opacity 0.15s ease;
 }
 
+.app-main section.fadePage {
+	opacity: 0.5;
+}
 
 
 
