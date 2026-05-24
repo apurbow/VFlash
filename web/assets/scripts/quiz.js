@@ -7,7 +7,7 @@ let quizTotal = 0;
 
 /* Generate Quiz Queue */
 
-function generateQuizQueue() {
+const generateQuizQueue = () => {
 	const progress = loadProgress();
 	quizQueue = words.filter(word => {
 		return progress[word.id];
@@ -18,7 +18,7 @@ function generateQuizQueue() {
 
 /* Create Quiz */
 
-function loadQuizQuestion() {
+const loadQuizQuestion = () => {
 	if (Object.keys(loadProgress()).length < 6) { // Minimum 6 words to start quiz
 		$('.quiz-card').html(`
 			<div class="empty-state">

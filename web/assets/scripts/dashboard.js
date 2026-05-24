@@ -7,7 +7,7 @@ $('.overview-btn').click(() => {
 
 
 
-function loadDashboard() {
+const loadDashboard = () => {
 	const progress = loadProgress();
 	const progressArray = Object.values(progress);
 
@@ -99,7 +99,7 @@ function loadDashboard() {
 
 
 /* Next Review Time */
-function getNextReviewTime(progress) {
+const getNextReviewTime = (progress) => {
 	const upcomingReviews =
 		Object.values(progress)
 			.map(entry => entry.nextReview)
@@ -112,7 +112,7 @@ function getNextReviewTime(progress) {
 
 /* Time Formatter */
 
-function formatTimeUntil(timestamp) {
+const formatTimeUntil = (timestamp) => {
 	const diff = timestamp - Date.now();
 	const minutes = Math.floor(diff / 1000 / 60);
 	const hours = Math.floor(minutes / 60);

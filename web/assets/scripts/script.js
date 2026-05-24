@@ -1,4 +1,4 @@
-$(window).on('load', function () {
+$(window).on('load', () => {
 
 	// Navigation
 	$(".nav-item").click(function () {
@@ -17,6 +17,7 @@ $(window).on('load', function () {
 			$(".app-main").css({ transform: "translateX(-25%)" });
 			$("body").css({ "background-position": "33% 33%" });
 		} else if (activePage == "Library") {
+			loadLibrary();
 			$(".app-main").css({ transform: "translateX(-50%)" });
 			$("body").css({ "background-position": "66% 66%" });
 		} else if (activePage == "Quiz") {
@@ -25,8 +26,7 @@ $(window).on('load', function () {
 			$("body").css({ "background-position": "100% 100%" });
 		}
 	});
-
-	$(".nav-item").eq(3).click();
+	
 
 	// Initiate App
 	generateStudyQueue(); // study.js

@@ -219,6 +219,7 @@
 	<script src="assets/scripts/study.js" defer></script>
 	<script src="assets/scripts/dashboard.js" defer></script>
 	<script src="assets/scripts/quiz.js" defer></script>
+	<script src="assets/scripts/library.js" defer></script>
 	<script src="assets/scripts/script.js" defer></script>
 </head>
 
@@ -340,7 +341,7 @@
 					</div>
 				</div>
 
-				
+
 				<!-- Recall Rate -->
 				<div class="recall-card glass-card">
 					<span class="material-symbols-outlined">
@@ -411,9 +412,39 @@
 				</div>
 			</section>
 
+			<!-- Library Section -->
 			<section class="library">
-				<h3>Library</h3>
+				<div class="library-header glass-card">
+					<div>
+						<p class="small-label">LIBRARY</p>
+						<h2 class="library-title">Vocabulary Library</h2>
+					</div>
+				</div>
+				<div class="library-search glass-card">
+					<span class="material-symbols-outlined">search</span>
+					<input type="text" class="library-search-input" placeholder="Search English, Japanese, or romaji">
+				</div>
+				<div class="library-list"></div>
+
+				<!-- Library Detail Overlay -->
+				<div class="library-detail-overlay">
+					<div class="library-detail-card glass-card">
+						<button class="library-detail-close" aria-label="Close">
+							<span class="material-symbols-outlined">close</span>
+						</button>
+						<p class="small-label">WORD DETAILS</p>
+						<h2 class="library-detail-word"></h2>
+						<p class="library-detail-jp"></p>
+						<div class="library-detail-meta">
+							<span class="library-pill library-detail-mastery"></span>
+							<span class="library-pill library-detail-review"></span>
+						</div>
+						<p class="library-detail-meaning"></p>
+						<div class="library-detail-examples"></div>
+					</div>
+				</div>
 			</section>
+
 
 			<!-- Quiz Section -->
 			<section class="quiz">

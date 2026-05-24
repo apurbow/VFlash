@@ -5,13 +5,13 @@ let currentWord = null;
 let currentMode = 'study'; // for the mode to exist globally
 
 
-function shuffle(array) {
+const shuffle = (array) => {
 	return [...array].sort(() => Math.random() - 0.5);
-}
+};
 
 
 /* Generate Study Queue */
-function generateStudyQueue() {
+const generateStudyQueue = () => {
 	const progress = loadProgress();
 	studyQueue = words.filter(word => {
 		return !progress[word.id];
@@ -21,7 +21,7 @@ function generateStudyQueue() {
 
 
 /* Generate Review Queue */
-function generateReviewQueue() {
+const generateReviewQueue = () => {
 	const progress = loadProgress();
 	reviewQueue = words.filter(word => {
 		const entry = progress[word.id];
@@ -31,7 +31,7 @@ function generateReviewQueue() {
 }
 
 
-function getNextWord() {
+const getNextWord = () => {
 	if (currentMode === 'study') {
 		if (studyQueue.length === 0) generateStudyQueue();
 		if (studyQueue.length === 0) {
@@ -57,7 +57,7 @@ function getNextWord() {
 
 // Study\Review toggle
 
-$(".study-toggle-option").click(function () {
+$(".study-toggle-option").click(() => {
 	$(".study-toggle-option").removeClass("active");
 	$(this).addClass("active");
 
@@ -72,13 +72,13 @@ $(".study-toggle-option").click(function () {
 });
 
 // Flashcard Flip
-$(".flashcard").click(function () {
+$(".flashcard").click(() => {
 	if (!currentWord) return;
 	$(this).toggleClass("flipped");
 });
 
 // Render card
-function renderCard(word) {
+const renderCard = (word) => {
 	$('.card-front, .card-back').addClass("dive");
 	$(".flashcard").removeClass("flipped");
 	setTimeout(() => {
@@ -128,29 +128,30 @@ function renderCard(word) {
 }
 
 
-function loadNextCard() {
+const loadNextCard = () => {
 	currentWord = getNextWord();
 	renderCard(currentWord);
 }
 
 
-$(".easy-btn").click(function () {
+$(".easy-btn").click(() => {
 	if (!currentWord) return;
 	updateWordProgress(currentWord.id, "easy");
-	loadNextCard();
+	loadNextCard(); 
 	loadDashboard(); // dashboard.js
 	loadQuizQuestion(); // quiz.js
 });
 
-$(".hard-btn").click(function () {
+
+$(".hard-btn").click(() => {
 	if (!currentWord) return;
 	updateWordProgress(currentWord.id, "hard");
-	loadNextCard();
-	loadDashboard();
+	loadNextCard(); 
+	loadDashboard(); // dashboard.js
 	loadQuizQuestion(); // quiz.js
 });
 
-$(".skip-btn").click(function () {
+$(".skip-btn").click(() => {
 	if (!currentWord) return;
 
 	if (currentMode === "study") {
