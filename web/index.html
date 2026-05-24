@@ -9,202 +9,205 @@
 		content="A lightweight vocabulary learning platform focused on fast review and personalized learning.">
 	<link rel="shortcut icon" href="assets/images/icon.svg" type="image/svg+xml">
 	<style>
-/* Loading Screen */
-/* ********************************** */
+		/* Loading Screen */
+		/* ********************************** */
 
-.loading-screen {
-	position: fixed;
-	inset: 0;
-	z-index: 99999;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 1.5rem;
-	background:linear-gradient(
-		135deg,
-		#6d28d9,
-		#629dff,
-		#7350c2,
-		#43befb
-	);
-	background-size: 400% 400%;
-	animation: bgMove 10s ease infinite;
-	transition: opacity 0.2s ease, visibility 0.2s ease;
-}
+		.loading-screen {
+			position: fixed;
+			inset: 0;
+			z-index: 99999;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 1.5rem;
+			background: linear-gradient(135deg,
+					#6d28d9,
+					#629dff,
+					#7350c2,
+					#43befb);
+			background-size: 400% 400%;
+			animation: bgMove 10s ease infinite;
+			transition: opacity 0.2s ease, visibility 0.2s ease;
+		}
 
-/* Hide State */
-.loading-screen.hide {
-	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
-	z-index: -100;
-}
+		/* Hide State */
+		.loading-screen.hide {
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			z-index: -100;
+		}
 
-/* Loader Card */
-/* ******************************************** */
+		/* Loader Card */
+		/* ******************************************** */
 
-.loading-card {
-	position: relative;
-	width: 100%;
-	max-width: 340px;
-	padding: 2rem 1.8rem;
-	border-radius: 32px;
-	background: rgba(255,255,255,0.12);
-	backdrop-filter: blur(18px);
-	-webkit-backdrop-filter: blur(18px);
-	border: 1px solid rgba(255,255,255,0.15);
-	box-shadow: 0 10px 40px rgba(0,0,0,0.18),
-		inset 0 1px 1px rgba(255,255,255,0.08);
-	text-align: center;
-	overflow: hidden;
-}
+		.loading-card {
+			position: relative;
+			width: 100%;
+			max-width: 340px;
+			padding: 2rem 1.8rem;
+			border-radius: 32px;
+			background: rgba(255, 255, 255, 0.12);
+			backdrop-filter: blur(18px);
+			-webkit-backdrop-filter: blur(18px);
+			border: 1px solid rgba(255, 255, 255, 0.15);
+			box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18),
+				inset 0 1px 1px rgba(255, 255, 255, 0.08);
+			text-align: center;
+			overflow: hidden;
+		}
 
 
-/* Glow */
+		/* Glow */
 
-.loading-card::before {
-	content: "";
-	position: absolute;
-	width: 240px;
-	height: 240px;
-	top: -120px;
-	right: -100px;
-	border-radius: 50%;
-	background:
-		radial-gradient(
-			circle,
-			rgba(255,255,255,0.22),
-			transparent 70%
-		);
-	pointer-events: none;
-}
+		.loading-card::before {
+			content: "";
+			position: absolute;
+			width: 240px;
+			height: 240px;
+			top: -120px;
+			right: -100px;
+			border-radius: 50%;
+			background:
+				radial-gradient(circle,
+					rgba(255, 255, 255, 0.22),
+					transparent 70%);
+			pointer-events: none;
+		}
 
 
 
-/* Logo */
-/* ********************************************** */
+		/* Logo */
+		/* ********************************************** */
 
-.loading-logo {
-	position: relative;
-	width: 90px;
-	height: 90px;
-	margin: 0 auto 1.5rem;
-	border-radius: 28px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: rgba(255,255,255,0.14);
-	border: 1px solid rgba(255,255,255,0.18);
-	backdrop-filter: blur(10px);
-	box-shadow: 0 8px 24px rgba(0,0,0,0.12),
-		inset 0 1px 1px rgba(255,255,255,0.08);
-	animation: floatLogo 2.4s ease-in-out infinite;
-}
+		.loading-logo {
+			position: relative;
+			width: 90px;
+			height: 90px;
+			margin: 0 auto 1.5rem;
+			border-radius: 28px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: rgba(255, 255, 255, 0.14);
+			border: 1px solid rgba(255, 255, 255, 0.18);
+			backdrop-filter: blur(10px);
+			box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12),
+				inset 0 1px 1px rgba(255, 255, 255, 0.08);
+			animation: floatLogo 2.4s ease-in-out infinite;
+		}
 
-.loading-logo img {
-	width: 80%;
-	border-radius: 20px;
-	animation: boltPulse 1.2s ease-in-out infinite;
-}
+		.loading-logo img {
+			width: 80%;
+			border-radius: 20px;
+			animation: boltPulse 1.2s ease-in-out infinite;
+		}
 
-/* Text */
-/* ********************************************** */
+		/* Text */
+		/* ********************************************** */
 
-.loading-card h2 {
-	margin: 0;
-	font-size: 2rem;
-	font-weight: 700;
-	color: white;
-	letter-spacing: 0.5px;
-}
+		.loading-card h2 {
+			margin: 0;
+			font-size: 2rem;
+			font-weight: 700;
+			color: white;
+			letter-spacing: 0.5px;
+		}
 
-.loading-card p {
-	margin-top: 0.6rem;
-	margin-bottom: 1.6rem;
-	color: rgba(255,255,255,0.72);
-	font-size: 0.95rem;
-	line-height: 1.5;
-}
-
-
-
-/* Loading Bar */
-/* ********************************************** */
-
-.loading-bar {
-	position: relative;
-	width: 100%;
-	height: 10px;
-	border-radius: 999px;
-	background: rgba(255,255,255,0.08);
-	overflow: hidden;
-	border: 1px solid rgba(255,255,255,0.08);
-}
-
-.loading-bar-fill {
-	position: absolute;
-	inset: 0;
-	width: 40%;
-	border-radius: inherit;
-	background:	#ffffff;
-	box-shadow: 0 0 18px rgba(255,255,255,0.5);
-	animation: loaderMove 1.2s ease infinite;
-}
+		.loading-card p {
+			margin-top: 0.6rem;
+			margin-bottom: 1.6rem;
+			color: rgba(255, 255, 255, 0.72);
+			font-size: 0.95rem;
+			line-height: 1.5;
+		}
 
 
-/* Animations */
-/* ********************************************** */
 
-@keyframes loaderMove {
-	0% {
-		transform: translateX(-120%);
-	}
-	100% {
-		transform: translateX(280%);
-	}
-}
+		/* Loading Bar */
+		/* ********************************************** */
 
-@keyframes floatLogo {
-	0% {
-		transform: translateY(0px);
-	}
-	50% {
-		transform: translateY(-6px);
-	}
-	100% {
-		transform: translateY(0px);
-	}
-}
+		.loading-bar {
+			position: relative;
+			width: 100%;
+			height: 10px;
+			border-radius: 999px;
+			background: rgba(255, 255, 255, 0.08);
+			overflow: hidden;
+			border: 1px solid rgba(255, 255, 255, 0.08);
+		}
 
-@keyframes boltPulse {
-	0% {
-		transform:
-			scale(1);
-		opacity: 0.8;
-	}
-	50% {
-		transform:
-			scale(1.08);
-		opacity: 1;
-	}
-	100% {
-		transform:
-			scale(1);
-		opacity: 0.8;
-	}
-}
+		.loading-bar-fill {
+			position: absolute;
+			inset: 0;
+			width: 40%;
+			border-radius: inherit;
+			background: #ffffff;
+			box-shadow: 0 0 18px rgba(255, 255, 255, 0.5);
+			animation: loaderMove 1.2s ease infinite;
+		}
 
-@keyframes bgMove {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
+
+		/* Animations */
+		/* ********************************************** */
+
+		@keyframes loaderMove {
+			0% {
+				transform: translateX(-120%);
+			}
+
+			100% {
+				transform: translateX(280%);
+			}
+		}
+
+		@keyframes floatLogo {
+			0% {
+				transform: translateY(0px);
+			}
+
+			50% {
+				transform: translateY(-6px);
+			}
+
+			100% {
+				transform: translateY(0px);
+			}
+		}
+
+		@keyframes boltPulse {
+			0% {
+				transform:
+					scale(1);
+				opacity: 0.8;
+			}
+
+			50% {
+				transform:
+					scale(1.08);
+				opacity: 1;
+			}
+
+			100% {
+				transform:
+					scale(1);
+				opacity: 0.8;
+			}
+		}
+
+		@keyframes bgMove {
+			0% {
+				background-position: 0% 50%;
+			}
+
+			50% {
+				background-position: 100% 50%;
+			}
+
+			100% {
+				background-position: 0% 50%;
+			}
+		}
 	</style>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
@@ -214,6 +217,7 @@
 	<script src="assets/progress.js" defer></script>
 	<script src="assets/study.js" defer></script>
 	<script src="assets/dashboard.js" defer></script>
+	<script src="assets/quiz.js" defer></script>
 	<script src="assets/script.js" defer></script>
 </head>
 
@@ -253,9 +257,9 @@
 					</li>
 					<li class="nav-item">
 						<span class="material-symbols-outlined">
-							search
+							newsstand
 						</span>
-						<span class="title">Search</span>
+						<span class="title">Library</span>
 					</li>
 					<li class="nav-item">
 						<span class="material-symbols-outlined">
@@ -397,12 +401,36 @@
 				</div>
 			</section>
 
-			<section class="search">
-				<h3>Search</h3>
+			<section class="library">
+				<h3>Library</h3>
 			</section>
 
+			<!-- Quiz Section -->
 			<section class="quiz">
-				<h3>Quiz</h3>
+				<div class="quiz-header glass-card">
+					<div>
+						<p class="small-label">VOCAB QUIZ</p>
+						<h2 class="quiz-title">Test Your Memory</h2>
+					</div>
+
+					<div class="quiz-score">
+						<span class="material-symbols-outlined">
+							workspace_premium
+						</span>
+						<p><span class="quiz-correct">0</span>/<span class="quiz-total">0</span></p>
+					</div>
+				</div>
+
+				<div class="quiz-card glass-card">
+					<p class="quiz-label">WORD</p>
+					<h1 class="quiz-word"></h1>
+					<div class="quiz-options">
+						<button class="quiz-option"></button>
+						<button class="quiz-option"></button>
+						<button class="quiz-option"></button>
+						<button class="quiz-option"></button>
+					</div>
+				</div>
 			</section>
 		</main>
 	</div>
