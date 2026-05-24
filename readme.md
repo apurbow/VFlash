@@ -1,3 +1,6 @@
+<p align="center">
+	<img src="web/assets/images/icon.svg" width="140" align="center">
+</p>
 <h1 align="center">VFlash</h1>
 
 <p align="center">
@@ -31,6 +34,20 @@ The application stores all progress locally using `localStorage`.
 <br>
 
 ---
+
+## Project Notes
+
+- ### This project was designed primarily for mobile devices. Desktop responsiveness has not been fully implemented yet.
+- ### It is highly recommended to open the app on:
+  - a mobile device
+  - or desktop browser mobile view / responsive mode
+
+<br>
+
+---
+---
+
+<br>
 
 ## Features
 
@@ -87,16 +104,6 @@ The application stores all progress locally using `localStorage`.
 
 ---
 
-## Project Notes
-
-- ### This project was designed primarily for mobile devices. Desktop responsiveness has not been fully implemented yet.
-- ### It is highly recommended to open the app on:
-  - a mobile device
-  - or desktop browser mobile view / responsive mode
-
-<br>
-
----
 <br>
 
 ## Data Disclaimer
@@ -165,4 +172,4 @@ Possible future improvements:
 
 ## Screenshots
 
-<img src="assets/screenshots/dashboard.png" width="250"><img src="assets/screenshots/study.png" width="250"><img src="assets/screenshots/library.png" width="250"><img src="assets/screenshots/quiz.png" width="250">
+<img src="screenshots/dashboard.png" width="250"><img src="screenshots/study.png" width="250"><img src="screenshots/library.png" width="250"><img src="screenshots/quiz.png" width="250">
