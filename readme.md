@@ -168,6 +168,21 @@ Possible future improvements:
 
 <br>
 
+### Running Locally
+
+Simply open:
+	
+	index.html
+in a browser.
+
+Or use a local development server.
+<br>
+
+### License
+
+This project is currently for educational and portfolio purposes.
+
+
 ---
 
 ## Screenshots
