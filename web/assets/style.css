@@ -347,8 +347,34 @@ body {
 
 .next-review .material-symbols-outlined {
 	font-size: 2rem;
-	color: rgba(255, 255, 255, 0.8);
+	color: rgba(255, 255, 255, 0.85);
 }
+
+
+/* Recall Rate */
+.recall-card {
+	padding: 1.2rem 1.3rem;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	text-align: left;
+	color: white;
+	gap: 1rem;
+	animation: popUp 0.4s ease-out 350ms forwards;
+}
+
+.recall-card h3 {
+	color: rgba(255, 255, 255, 0.8);
+	margin: 0;
+	font-size: 1.2rem;
+	text-align: left;
+}
+.recall-card .material-symbols-outlined {
+	font-size: 2rem;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+
 
 
 /* Motivation */

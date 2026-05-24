@@ -20,6 +20,7 @@ $(window).on('load', function () {
 			$(".app-main").css({ transform: "translateX(-50%)" });
 			$("body").css({ "background-position": "66% 66%" });
 		} else if (activePage == "Quiz") {
+			loadQuizQuestion();
 			$(".app-main").css({ transform: "translateX(-75%)" });
 			$("body").css({ "background-position": "100% 100%" });
 		}

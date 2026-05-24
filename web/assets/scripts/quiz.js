@@ -19,10 +19,7 @@ function generateQuizQueue() {
 /* Create Quiz */
 
 function loadQuizQuestion() {
-	if (quizQueue.length === 0) {
-		generateQuizQueue();
-	}
-	if (quizQueue.length < 10) {
+	if (Object.keys(loadProgress()).length < 6) { // Minimum 6 words to start quiz
 		$('.quiz-card').html(`
 			<div class="empty-state">
 				<h3>Quiz Not Available</h3>
@@ -33,14 +30,17 @@ function loadQuizQuestion() {
 		`);
 		return;
 	}
+	if (quizQueue.length === 0) {
+		generateQuizQueue();
+	}
 
 	const word = quizQueue.shift();
 	currentQuiz = word;
 	$('.quiz-word').text(word.word);
 	const correctAnswer = word.japanese;
 	const wrongAnswers = shuffle(words
-			.filter(w => w.id !== word.id)
-			.map(w => w.japanese)
+		.filter(w => w.id !== word.id)
+		.map(w => w.japanese)
 	).slice(0, 3);
 
 	const options = shuffle([correctAnswer, ...wrongAnswers]);
@@ -65,9 +65,11 @@ $('.quiz-option').click(function () {
 	$('.quiz-option').addClass('disabled');
 	if (selected === correct) {
 		quizCorrect++;
+		saveQuizMetric(true); // Save as correct // progress.js
 		$('.quiz-correct').text(quizCorrect);
 		$(this).addClass('correct');
 	} else {
+		saveQuizMetric(false); // Save as incorrect // progress.js
 		$(this).addClass('wrong');
 		$('.quiz-option').each(function () {
 			if ($(this).text() === correct) {

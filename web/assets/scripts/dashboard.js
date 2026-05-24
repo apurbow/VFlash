@@ -12,14 +12,24 @@ function loadDashboard() {
 	const progressArray = Object.values(progress);
 
 	// Basic Stats
+	const quizMetrics = getQuizMetrics(); // progress.js
 	const studyingCount = progressArray.length;
 	const reviewCount = progressArray.filter(entry => entry.nextReview <= Date.now()).length;
 	const reviewingCount = progressArray.filter(entry => entry.score <= 2).length;
 	const learnedCount = progressArray.filter(entry => entry.score > 2).length;
-	const totalSuccess = progressArray.reduce((sum, entry) => sum + (entry.successCount || 0), 0);
-	const totalFail = progressArray.reduce((sum, entry) => sum + (entry.failCount || 0), 0);
-	const totalAttempts = totalSuccess + totalFail;
-	const recallRate = totalAttempts > 0 ? Math.round((totalSuccess / totalAttempts) * 100) : 0;
+
+	/// Recall Metrics
+	const totalReviewCorrect = progressArray.reduce((sum, entry) => sum + (entry.successCount || 0), 0);
+	const totalReviewWrong = progressArray.reduce((sum, entry) => sum + (entry.failCount || 0), 0);
+	const totalQuizCorrect = Math.round((quizMetrics.accuracy / 100) * quizMetrics.total);
+	const totalQuizWrong = quizMetrics.total - totalQuizCorrect;
+
+	const totalCorrect = totalReviewCorrect + totalQuizCorrect;
+	const totalWrong = totalReviewWrong + totalQuizWrong;
+	const totalInteractions = totalCorrect + totalWrong;
+
+	const recallRate = totalInteractions > 0 ? 
+		Math.round((totalCorrect / totalInteractions) * 100) : 0;
 
 
 	// Overview Card
@@ -38,7 +48,7 @@ function loadDashboard() {
 	$('.stat-card').eq(0).find('h2').text(studyingCount);
 	$('.stat-card').eq(1).find('h2').text(reviewingCount);
 	$('.stat-card').eq(2).find('h2').text(learnedCount);
-	$('.stat-card').eq(3).find('h2').text(recallRate + '%');
+	$('.stat-card').eq(3).find('h2').text(quizMetrics.accuracy + '%');
 
 
 	// Next Review
@@ -49,6 +59,9 @@ function loadDashboard() {
 		if (nextReviewTime === null) $('.next-review h3').text('No upcoming reviews');
 		else $('.next-review h3').text(formatTimeUntil(nextReviewTime));
 	}
+
+	// Recall Rate
+	$('.recall-card h3').text(`Current recall accuracy is ${recallRate}%`);
 
 	// Motivation Text
 	const motivations = [
@@ -102,8 +115,8 @@ function getNextReviewTime(progress) {
 function formatTimeUntil(timestamp) {
 	const diff = timestamp - Date.now();
 	const minutes = Math.floor(diff / 1000 / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
+	const hours = Math.floor(minutes / 60);
+	const days = Math.floor(hours / 24);
 
 	if (minutes < 60) return `In ${minutes} Minutes`;
 	if (hours < 24) return `In ${hours} Hours`;

@@ -138,7 +138,8 @@ $(".easy-btn").click(function () {
 	if (!currentWord) return;
 	updateWordProgress(currentWord.id, "easy");
 	loadNextCard();
-	loadDashboard();
+	loadDashboard(); // dashboard.js
+	loadQuizQuestion(); // quiz.js
 });
 
 $(".hard-btn").click(function () {
@@ -146,6 +147,7 @@ $(".hard-btn").click(function () {
 	updateWordProgress(currentWord.id, "hard");
 	loadNextCard();
 	loadDashboard();
+	loadQuizQuestion(); // quiz.js
 });
 
 $(".skip-btn").click(function () {
@@ -166,6 +168,7 @@ $(".skip-btn").click(function () {
 			currentWord
 		);
 	}
-	loadNextCard();
-	loadDashboard();
+	loadNextCard(); 
+	loadDashboard(); // dashboard.js
+	loadQuizQuestion(); // quiz.js
 });
