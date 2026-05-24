@@ -1,7 +1,7 @@
 
 let libraryCache = [];
 
-const getLibraryWords = () => {
+function getLibraryWords() {
 	const progress = loadProgress();
 	const studied = [];
 	const newWords = [];
@@ -20,7 +20,7 @@ const getLibraryWords = () => {
 	return [...studied, ...newWords];
 }
 
-const getMasteryLabel = (score) => {
+function getMasteryLabel(score) {
 	if (score <= 1) return "Beginner";
 	if (score === 2) return "Learning";
 	if (score === 3) return "Familiar";
@@ -28,7 +28,7 @@ const getMasteryLabel = (score) => {
 	return "Mastered";
 }
 
-const formatReviewTime = (nextReview) => {
+function formatReviewTime(nextReview) {
 	if (!nextReview) return "Review: N/A";
 	const diff = nextReview - Date.now();
 	if (diff <= 0) return "Review now";
@@ -42,7 +42,7 @@ const formatReviewTime = (nextReview) => {
 	return `Review in ${days} days`;
 }
 
-const renderLibrary = (query = "") => {
+function renderLibrary(query = "") {
 	const list = $(".library-list");
 	const searchValue = query.trim().toLowerCase();
 	libraryCache = getLibraryWords();
@@ -77,7 +77,7 @@ const renderLibrary = (query = "") => {
 	list.html(html);
 }
 
-const openLibraryDetail = (wordId) => {
+function openLibraryDetail(wordId) {
 	const word = words.find(w => String(w.id) === String(wordId));
 	if (!word) return;
 
@@ -115,11 +115,11 @@ const openLibraryDetail = (wordId) => {
 	$(".library-detail-overlay").addClass("show");
 }
 
-const closeLibraryDetail = () => {
+function closeLibraryDetail() {
 	$(".library-detail-overlay").removeClass("show");
 }
 
-const loadLibrary = () => {
+function loadLibrary() {
 	renderLibrary($(".library-search-input").val() || "");
 }
 

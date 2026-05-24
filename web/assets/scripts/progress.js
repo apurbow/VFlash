@@ -2,7 +2,7 @@
 const QUIZ_METRIC_KEY = 'vflash-quiz-metrics';
 const PROGRESS_STORAGE_KEY = 'vflash-progress';
 
-const loadProgress = () => {
+function loadProgress() {
 	try {
 		return JSON.parse(localStorage.getItem(PROGRESS_STORAGE_KEY)) || {};
 	} catch {
@@ -10,12 +10,12 @@ const loadProgress = () => {
 	}
 }
 
-const saveProgress = (progress) => {
+function saveProgress(progress) {
 	localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
 }
 
 
-const updateWordProgress = (wordId, difficulty) => {
+function updateWordProgress(wordId, difficulty) {
 	const progress = loadProgress();
 	if (!progress[wordId]) {
 		progress[wordId] = {
@@ -45,7 +45,7 @@ const updateWordProgress = (wordId, difficulty) => {
 	saveProgress(progress);
 }
 
-const getNextReviewHours = (score) => {
+function getNextReviewHours(score) {
 	if (score <= 0) return 0.1; // 6 minutes
 	if (score === 1) return 3; // 3 hours
 	if (score === 2) return 24; // 1 day
@@ -61,7 +61,7 @@ const getNextReviewHours = (score) => {
 
 
 // For Quiz Metrics
-const saveQuizMetric = (correct) => {
+function saveQuizMetric(correct) {
 	let quizMetrics = JSON.parse(localStorage.getItem(QUIZ_METRIC_KEY)) || [];
 	quizMetrics.push({
 		correct,
@@ -76,7 +76,7 @@ const saveQuizMetric = (correct) => {
 	);
 }
 
-const getQuizMetrics = () => {
+function getQuizMetrics() {
 	const quizMetrics = JSON.parse(localStorage.getItem(QUIZ_METRIC_KEY)) || [];
 	const total = quizMetrics.length;
 	if (total === 0) {

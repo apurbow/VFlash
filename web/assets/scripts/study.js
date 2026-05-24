@@ -11,7 +11,7 @@ const shuffle = (array) => {
 
 
 /* Generate Study Queue */
-const generateStudyQueue = () => {
+function generateStudyQueue() {
 	const progress = loadProgress();
 	studyQueue = words.filter(word => {
 		return !progress[word.id];
@@ -21,7 +21,7 @@ const generateStudyQueue = () => {
 
 
 /* Generate Review Queue */
-const generateReviewQueue = () => {
+function generateReviewQueue() {
 	const progress = loadProgress();
 	reviewQueue = words.filter(word => {
 		const entry = progress[word.id];
@@ -31,7 +31,7 @@ const generateReviewQueue = () => {
 }
 
 
-const getNextWord = () => {
+function getNextWord() {
 	if (currentMode === 'study') {
 		if (studyQueue.length === 0) generateStudyQueue();
 		if (studyQueue.length === 0) {
@@ -57,7 +57,9 @@ const getNextWord = () => {
 
 // Study\Review toggle
 
-$(".study-toggle-option").click(() => {
+$(".study-toggle-option").click(function() {
+	if (currentMode === $(this).attr("id").split("-")[1]) return;
+		
 	$(".study-toggle-option").removeClass("active");
 	$(this).addClass("active");
 
@@ -72,13 +74,13 @@ $(".study-toggle-option").click(() => {
 });
 
 // Flashcard Flip
-$(".flashcard").click(() => {
+$(".flashcard").click(function() {
 	if (!currentWord) return;
 	$(this).toggleClass("flipped");
 });
 
 // Render card
-const renderCard = (word) => {
+function renderCard(word) {
 	$('.card-front, .card-back').addClass("dive");
 	$(".flashcard").removeClass("flipped");
 	setTimeout(() => {
@@ -128,13 +130,13 @@ const renderCard = (word) => {
 }
 
 
-const loadNextCard = () => {
+function loadNextCard() {
 	currentWord = getNextWord();
 	renderCard(currentWord);
 }
 
 
-$(".easy-btn").click(() => {
+$(".easy-btn").click( function() {
 	if (!currentWord) return;
 	updateWordProgress(currentWord.id, "easy");
 	loadNextCard(); 
@@ -143,7 +145,7 @@ $(".easy-btn").click(() => {
 });
 
 
-$(".hard-btn").click(() => {
+$(".hard-btn").click(function() {
 	if (!currentWord) return;
 	updateWordProgress(currentWord.id, "hard");
 	loadNextCard(); 
@@ -151,7 +153,7 @@ $(".hard-btn").click(() => {
 	loadQuizQuestion(); // quiz.js
 });
 
-$(".skip-btn").click(() => {
+$(".skip-btn").click(function() {
 	if (!currentWord) return;
 
 	if (currentMode === "study") {
