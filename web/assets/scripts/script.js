@@ -3,6 +3,7 @@ $(window).on('load', () => {
 	// Navigation
 	$(".nav-item").click(function () {
 		if ($(this).hasClass("nav-item-active")) return;
+		$(".library-search-input").val("");
 		$(".nav-item").removeClass("nav-item-active");
 		$(this).addClass("nav-item-active");
 		$(".app-main section").addClass("fadePage");

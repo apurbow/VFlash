@@ -20,20 +20,16 @@ function generateQuizQueue() {
 
 function loadQuizQuestion() {
 	if (Object.keys(loadProgress()).length < 6) { // Minimum 6 words to start quiz
-		$('.quiz-card').html(`
-			<div class="empty-state">
-				<h3>Quiz Not Available</h3>
-				<h4>
-					Study some vocabulary first
-				</h4>
-			</div>
-		`);
+		$('.quiz-card .empty-state').show();
+		$('.quiz-card > :not(.empty-state)').hide();
 		return;
 	}
 	if (quizQueue.length === 0) {
 		generateQuizQueue();
 	}
 
+	$('.quiz-card .empty-state').hide();
+	$('.quiz-card > :not(.empty-state)').show();
 	const word = quizQueue.shift();
 	currentQuiz = word;
 	$('.quiz-word').text(word.word);
